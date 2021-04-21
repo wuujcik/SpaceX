@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Spacex" />
+
+    <style name="Spacex.CompanyInfo">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:layout_margin">@dimen/standard_margin</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle2</item>
+    </style>
+
+    <style name="Spacex.CompanyInfo.Name">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline4</item>
+    </style>
+
+    <style name="Spacex.CompanyInfo.Founded">
+        <item name="android:layout_marginTop">@dimen/small_margin</item>
+    </style>
+
+
+    <style name="Spacex.CompanyInfo.Title">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline6</item>
+    </style>
+
+    <style name="Spacex.CompanyInfo.Details">
+        <item name="android:layout_margin">@dimen/inner_margin</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+    <style name="Spacex.CompanyInfo.Grid">
+        <item name="android:columnCount">2</item>
+        <item name="android:layout_marginStart">@dimen/big_margin</item>
+        <item name="android:layout_marginEnd">@dimen/big_margin</item>
+    </style>
+
+
+</resources>
