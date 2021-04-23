@@ -1,4 +1,4 @@
-package com.wuujcik.spacex.persistence.companyInfo
+package com.wuujcik.spacex.persistence
 
 import android.os.Parcel
 import android.os.Parcelable

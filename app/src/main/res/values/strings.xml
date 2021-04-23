@@ -8,8 +8,8 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_company_info">Company info</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_upcoming_launches">Upcoming launches</string>
+    <string name="menu_past_launches">Past launches</string>
 
     <!-- Company Info -->
     <string name="founded">Founded by %1$s\nin %2$d</string>
@@ -25,5 +25,6 @@
     <string name="coo">COO</string>
     <string name="cto_propulsion">CTO Propulsion</string>
 
-
+    <!-- Upcoming Launches -->
+    <string name="flight_no">Flight #%1$d</string>
 </resources>

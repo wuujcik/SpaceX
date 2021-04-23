@@ -12,14 +12,31 @@
         tools:layout="@layout/fragment_company_info" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.wuujcik.spacex.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_upcoming_launches"
+        android:name="com.wuujcik.spacex.ui.upcomingLaunches.UpcomingLaunchesFragment"
+        android:label="@string/menu_upcoming_launches"
+        tools:layout="@layout/fragment_upcoming_launches">
+        <action
+            android:id="@+id/action_nav_upcoming_launches_to_launchDetailsFragment"
+            app:destination="@id/launch_details_fragment" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.wuujcik.spacex.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_past_launches"
+        android:name="com.wuujcik.spacex.ui.pastLaunches.PastLaunchesFragment"
+        android:label="@string/menu_past_launches"
+        tools:layout="@layout/fragment_past_launches">
+        <action
+            android:id="@+id/action_nav_past_launches_to_launchDetailsFragment"
+            app:destination="@id/launch_details_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/launch_details_fragment"
+        android:name="com.wuujcik.spacex.ui.launchDetails.LaunchDetailsFragment"
+        android:label="LaunchDetailsFragment">
+        <argument
+            android:name="data"
+            app:argType="com.wuujcik.spacex.persistence.Launch"
+            app:nullable="true" />
+    </fragment>
 </navigation>

@@ -16,4 +16,6 @@
     <dimen name="standard_padding">16dp</dimen>
     <dimen name="inner_padding">8dp</dimen>
 
+    <dimen name="icon_size">48dp</dimen>
+
 </resources>
