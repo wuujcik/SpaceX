@@ -2,16 +2,30 @@
     <!-- Base application theme. -->
     <style name="Theme.SpaceX" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#220347</item>
-        <item name="colorPrimaryVariant">#150140</item>
-        <item name="colorOnPrimary">#F0E7FB</item>
+        <item name="colorPrimary">@color/light_color_primary</item>
+        <item name="colorPrimaryVariant">@color/light_color_primary_variant</item>
+        <item name="colorOnPrimary">@color/light_color_on_primary</item>
+        <item name="colorAccent">@color/light_color_accent</item>
+
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
+        <item name="colorSecondary">@color/light_color_secondary</item>
+        <item name="colorSecondaryVariant">@color/light_color_secondary_variant</item>
+        <item name="colorOnSecondary">@color/light_color_on_secondary</item>
+
+        <!-- Status bar colors -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="colorControlNormal">?attr/colorOnPrimary</item>
+        <item name="colorControlHighlight">?attr/colorPrimaryVariant</item>
+
+        <item name="toolbarStyle">@style/ToolbarStyle</item>
+        <item name="backgroundColor">@color/light_color_for_tiles</item>
+        <item name="background">?attr/colorOnSecondary</item>
+    </style>
+
+    <style name="ToolbarStyle" parent="@style/Widget.AppCompat.Toolbar">
+        <!-- Makes the toolbar text whatever color you want for both light/dark-->
+        <item name="titleTextColor">?attr/colorOnPrimary</item>
+        <item name="android:background">?attr/colorPrimary</item>
     </style>
 
     <style name="Theme.SpaceX.NoActionBar">
@@ -22,4 +36,5 @@
     <style name="Theme.SpaceX.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.SpaceX.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

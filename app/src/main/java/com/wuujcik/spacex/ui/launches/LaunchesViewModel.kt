@@ -1,4 +1,4 @@
-package com.wuujcik.spacex.ui.upcomingLaunches
+package com.wuujcik.spacex.ui.launches
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.wuujcik.spacex.persistence.Launch
 import com.wuujcik.spacex.providers.LaunchProvider
 
-class UpcomingLaunchesViewModel : ViewModel() {
+class LaunchesViewModel : ViewModel() {
 
     private val provider: LaunchProvider by lazy {
         LaunchProvider()

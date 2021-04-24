@@ -96,12 +96,16 @@ data class Failure(
 
 data class Links(
     var patch: Patch? = null,
+    var article: String? = null
 ) : Parcelable {
-    constructor(parcel: Parcel) : this(parcel.readParcelable(Patch::class.java.classLoader)) {
-    }
+    constructor(parcel: Parcel) : this(
+        parcel.readParcelable(Patch::class.java.classLoader),
+        parcel.readString()
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeParcelable(patch, flags)
+        parcel.writeString(article)
     }
 
     override fun describeContents(): Int {

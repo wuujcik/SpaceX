@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Spacex.RecyclerList"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="?attr/colorOnPrimary">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/layout"
@@ -18,27 +18,29 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/flight_number"
+            style="@style/Spacex.RecyclerList.FlightNo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="Flight #1" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/name"
+            style="@style/Spacex.RecyclerList.Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="FalconSat" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/date"
+            style="@style/Spacex.RecyclerList.Date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="28 April" />
+            tools:text="28 April 2021 14:17" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="@dimen/icon_size"
-        android:layout_height="@dimen/icon_size"
+        style="@style/Spacex.RecyclerList.Icon"
         android:src="@drawable/ic_rocket"
         app:layout_constraintBottom_toBottomOf="@+id/layout"
         app:layout_constraintDimensionRatio="1"

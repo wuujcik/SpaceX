@@ -1,19 +1,16 @@
-package com.wuujcik.spacex.ui.upcomingLaunches
+package com.wuujcik.spacex.ui.launches
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.wuujcik.spacex.databinding.FragmentUpcomingLaunchesBinding
 
-class UpcomingLaunchesFragment : Fragment() {
+class LaunchesFragment : Fragment() {
 
-    private val upcomingLaunchesViewModel by viewModels<UpcomingLaunchesViewModel>()
+    private val upcomingLaunchesViewModel by viewModels<LaunchesViewModel>()
 
     private lateinit var binding: FragmentUpcomingLaunchesBinding
 
@@ -32,7 +29,7 @@ class UpcomingLaunchesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         upcomingLaunchesViewModel.requestUpcomingLaunches()
-        val adapter = UpcomingLaunchesAdapter()
+        val adapter = LaunchesAdapter()
 
         with(binding) {
             upcomingLaunchesRecyclerView.adapter = adapter

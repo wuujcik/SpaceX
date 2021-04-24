@@ -1,4 +1,4 @@
-package com.wuujcik.spacex.ui.upcomingLaunches
+package com.wuujcik.spacex.ui.launches
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,8 +12,8 @@ import com.wuujcik.spacex.persistence.Launch
 import com.wuujcik.spacex.utils.formatDateTime
 import java.util.*
 
-class UpcomingLaunchesAdapter :
-    ListAdapter<Launch, UpcomingLaunchesAdapter.ViewHolder>(diffCallback) {
+class LaunchesAdapter :
+    ListAdapter<Launch, LaunchesAdapter.ViewHolder>(diffCallback) {
 
 
     /** Callback when user click on holder */
@@ -45,10 +45,15 @@ class UpcomingLaunchesAdapter :
             item.date_unix?.let { dateTime ->
                 binding.date.text = formatDateTime(context, Date(dateTime * 1000))
             }
-            binding.image.load(item.links?.patch?.small) {
-                placeholder(R.drawable.ic_rocket)
-            }
+            val img = item.links?.patch?.small
 
+            if (img != null) {
+                binding.image.load(img) {
+                    placeholder(R.drawable.ic_rocket)
+                }
+            } else {
+                binding.image.load(R.drawable.ic_rocket)
+            }
             binding.root.setOnClickListener { onItemClicked(item) }
         }
     }

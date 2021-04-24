@@ -12,7 +12,4 @@ interface SpaceXApiService {
 
     @GET("launches/upcoming")
     fun getUpcomingLaunches(): Call<List<Launch?>>
-
-    @GET("launches/past")
-    fun getPastLaunches(): Call<List<Launch?>>
 }

@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <color name="colorTranslucent">#00000000</color>
+
+    <!-- light theme -->
+    <color name="light_color_primary">#ffe4e1</color>
+    <color name="light_color_primary_variant">#ccb2af</color>
+    <color name="light_color_on_primary">#1f0103</color>
+    <color name="light_color_secondary">#705557</color>
+    <color name="light_color_secondary_variant">#442c2e</color>
+    <color name="light_color_on_secondary">#ffffff</color>
+    <color name="light_color_for_tiles">#fffaf9</color>
+    <color name="light_color_accent">#ffe4e1</color>
+
+    <!-- dark theme -->
+    <color name="dark_color_primary">#333030</color>
+    <color name="dark_color_primary_variant">#191818</color>
+    <color name="dark_color_on_primary">#fffcfc</color>
+    <color name="dark_color_secondary">#b2aaa8</color>
+    <color name="dark_color_secondary_variant">#7f7a78</color>
+    <color name="dark_color_on_secondary">#fffdfd</color>
+    <color name="dark_color_accent">#99644E</color>
 </resources>
