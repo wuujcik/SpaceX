@@ -39,7 +39,7 @@
 
     <style name="Spacex.RecyclerList">
         <item name="android:layout_margin">@dimen/micro_margin</item>
-        <item name="android:background">?attr/colorPrimaryVariant</item>
+        <item name="android:background">?attr/backgroundColor</item>
     </style>
 
     <style name="Spacex.RecyclerList.FlightNo">
@@ -76,8 +76,7 @@
     </style>
 
     <style name="Spacex.Details.Name">
-        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle1
-        </item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline6</item>
     </style>
 
     <style name="Spacex.Details.Icon">
@@ -91,7 +90,7 @@
     </style>
 
     <style name="Spacex.Details.Date">
-
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle1</item>
     </style>
 
     <style name="Spacex.Details.Rocket">
@@ -105,9 +104,15 @@
         <item name="android:layout_marginEnd">@dimen/big_margin</item>
     </style>
 
-    <style name="Spacex.Details.GridItem">
+    <style name="Spacex.Details.GridItemTitle">
         <item name="android:layout_margin">@dimen/inner_margin</item>
         <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+    <style name="Spacex.Details.GridItemData">
+        <item name="android:layout_margin">@dimen/inner_margin</item>
+        <item name="android:layout_columnWeight">2</item>
         <item name="android:layout_width">0dp</item>
     </style>
 
@@ -124,10 +129,14 @@
         <item name="android:layout_marginBottom">@dimen/standard_margin</item>
     </style>
 
-
     <style name="Spacex.Button"  parent="Widget.MaterialComponents.Button" >
-        <item name="android:layout_margin">@dimen/standard_margin</item>
         <item name="backgroundTint">?attr/colorAccent</item>
     </style>
+
+    <style name="Spacex.Button.LaunchesDetails" >
+        <item name="android:layout_margin">@dimen/standard_margin</item>
+    </style>
+
+    <attr name="bcg_picture" format="reference"/>
 
 </resources>

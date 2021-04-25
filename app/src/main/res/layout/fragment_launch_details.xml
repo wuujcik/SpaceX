@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="@+id/image"
-            app:layout_constraintEnd_toStartOf="@+id/image"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/image"
             tools:text="CRS-20" />
@@ -27,6 +27,8 @@
             style="@style/Spacex.Details.Icon"
             app:layout_constraintDimensionRatio="1"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/flight_name"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/ic_rocket" />
 
@@ -52,7 +54,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/read_more"
-            style="@style/Spacex.Button"
+            style="@style/Spacex.Button.LaunchesDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/read_more"
@@ -78,42 +80,42 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/rocket_name"
-                style="@style/Spacex.Details.GridItem"
+                style="@style/Spacex.Details.GridItemTitle"
                 android:layout_height="wrap_content"
                 android:text="@string/rocket_name"
                 android:textAlignment="textStart" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/rocket_name_data"
-                style="@style/Spacex.Details.GridItem"
+                style="@style/Spacex.Details.GridItemData"
                 android:layout_height="wrap_content"
                 android:textAlignment="textEnd"
                 tools:text="Ricket Name" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/rocket_type"
-                style="@style/Spacex.Details.GridItem"
+                style="@style/Spacex.Details.GridItemTitle"
                 android:layout_height="wrap_content"
                 android:text="@string/rocket_type"
                 android:textAlignment="textStart" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/rocket_type_data"
-                style="@style/Spacex.Details.GridItem"
+                style="@style/Spacex.Details.GridItemData"
                 android:layout_height="wrap_content"
                 android:textAlignment="textEnd"
                 tools:text="n/a" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/rocket_description"
-                style="@style/Spacex.Details.GridItem"
+                style="@style/Spacex.Details.GridItemTitle"
                 android:layout_height="wrap_content"
                 android:text="@string/rocket_description"
                 android:textAlignment="textStart" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/rocket_description_data"
-                style="@style/Spacex.Details.GridItem"
+                style="@style/Spacex.Details.GridItemData"
                 android:layout_height="wrap_content"
                 android:textAlignment="textEnd"
                 tools:text="merlin engine failure" />
@@ -123,10 +125,9 @@
             android:id="@+id/rocket_img"
             style="@style/Spacex.Rocket"
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/rocket_layout"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rocket_layout"
             tools:src="@drawable/ic_rocket" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,6 +35,11 @@ class LaunchesFragment : Fragment() {
         val adapter = LaunchesAdapter()
 
         with(binding) {
+
+            filter.setOnClickListener {
+                // TODO implement filtering
+            }
+
             launchesRecyclerView.adapter = adapter
             launchesRecyclerView.layoutManager = LinearLayoutManager(context)
 

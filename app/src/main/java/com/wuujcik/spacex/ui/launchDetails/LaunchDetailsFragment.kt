@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import coil.load
-import com.wuujcik.spacex.R
 import com.wuujcik.spacex.databinding.FragmentLaunchDetailsBinding
 import com.wuujcik.spacex.persistence.Launch
 import com.wuujcik.spacex.utils.formatDateTime
@@ -47,14 +46,7 @@ class LaunchDetailsFragment : Fragment() {
             if (dateUnix != null) {
                 date.text = context?.let { formatDateTime(it, Date(dateUnix * 1000)) }
             }
-            val img = launch?.links?.patch?.small
-            if (img != null) {
-                image.load(img) {
-                    placeholder(R.drawable.ic_rocket)
-                }
-            } else {
-                image.load(R.drawable.ic_rocket)
-            }
+            image.load(launch?.links?.patch?.small)
             details.text = launch?.details
             readMore.setOnClickListener {
                 launchDetailsViewModel.sendIntentForUrl(launch?.links?.article, context)

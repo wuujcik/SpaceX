@@ -4,21 +4,21 @@
     <color name="colorTranslucent">#00000000</color>
 
     <!-- light theme -->
-    <color name="light_color_primary">#ffe4e1</color>
-    <color name="light_color_primary_variant">#ccb2af</color>
-    <color name="light_color_on_primary">#1f0103</color>
-    <color name="light_color_secondary">#705557</color>
-    <color name="light_color_secondary_variant">#442c2e</color>
-    <color name="light_color_on_secondary">#ffffff</color>
-    <color name="light_color_for_tiles">#fffaf9</color>
-    <color name="light_color_accent">#ffe4e1</color>
+    <color name="light_color_primary">#fff1d9</color>
+    <color name="light_color_primary_variant">#c7ab8e</color>
+    <color name="light_color_on_primary">#1d1916</color>
+    <color name="light_color_secondary">#f9eeea</color>
+    <color name="light_color_secondary_variant">#c6bcb8</color>
+    <color name="light_color_on_secondary">#464342</color>
+    <color name="light_color_for_tiles">#fffbf5</color>
+    <color name="light_color_accent">#c7ab8e</color>
 
     <!-- dark theme -->
     <color name="dark_color_primary">#333030</color>
     <color name="dark_color_primary_variant">#191818</color>
     <color name="dark_color_on_primary">#fffcfc</color>
-    <color name="dark_color_secondary">#b2aaa8</color>
-    <color name="dark_color_secondary_variant">#7f7a78</color>
-    <color name="dark_color_on_secondary">#fffdfd</color>
-    <color name="dark_color_accent">#99644E</color>
+    <color name="dark_color_secondary">#2D343D</color>
+    <color name="dark_color_secondary_variant">#252A30</color>
+    <color name="dark_color_on_secondary">#D2E7FF</color>
+    <color name="dark_color_accent">#0e2336</color>
 </resources>

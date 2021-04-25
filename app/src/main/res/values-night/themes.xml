@@ -10,7 +10,7 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/dark_color_secondary</item>
         <item name="colorSecondaryVariant">@color/dark_color_secondary_variant</item>
-        <item name="colorOnSecondary">@color/light_color_on_secondary</item>
+        <item name="colorOnSecondary">@color/dark_color_on_secondary</item>
 
         <!-- Status bar colors -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
@@ -20,6 +20,7 @@
         <item name="toolbarStyle">@style/ToolbarStyle</item>
         <item name="backgroundColor">?attr/colorPrimaryVariant</item>
         <item name="background">?attr/colorPrimaryVariant</item>
+        <item name="bcg_picture">@drawable/starlink_dark</item>
     </style>
 
     <style name="ToolbarStyle" parent="@style/Widget.AppCompat.Toolbar">
@@ -33,7 +34,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AlertDialog" parent="android:Theme.Material.Light.Dialog.Alert">
-        <item name="android:colorPrimary">?attr/colorOnPrimary</item>
+    <style name="Theme.SpaceX.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.SpaceX.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="actionMenuTextColor">@color/dark_color_accent</item>
     </style>
+
 </resources>
