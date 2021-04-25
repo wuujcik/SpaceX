@@ -24,9 +24,9 @@
     <!-- Launches -->
     <string name="flight_no">Flight #%1$d</string>
     <string name="launch_details">Details of flight #%1$d</string>
-    <string name="failures">Failures</string>
-    <string name="when">When</string>
-    <string name="altitude">Altitude</string>
-    <string name="reason">Reason</string>
+    <string name="rocket">Rocket</string>
+    <string name="rocket_name">Name</string>
+    <string name="rocket_type">Type</string>
+    <string name="rocket_description">Description</string>
     <string name="read_more">Read more</string>
 </resources>

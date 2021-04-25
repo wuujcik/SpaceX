@@ -94,7 +94,7 @@
 
     </style>
 
-    <style name="Spacex.Details.Failures">
+    <style name="Spacex.Details.Rocket">
         <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline6</item>
     </style>
 
@@ -115,6 +115,13 @@
         <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body2</item>
         <item name="android:textAlignment">center</item>
         <item name="android:justificationMode" tools:targetApi="o">inter_word</item>
+    </style>
+
+    <style name="Spacex.Rocket">
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
+        <item name="android:layout_marginTop">@dimen/inner_margin</item>
+        <item name="android:layout_marginBottom">@dimen/standard_margin</item>
     </style>
 
 

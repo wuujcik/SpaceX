@@ -46,7 +46,6 @@ class LaunchesAdapter :
                 binding.date.text = formatDateTime(context, Date(dateTime * 1000))
             }
             val img = item.links?.patch?.small
-
             if (img != null) {
                 binding.image.load(img) {
                     placeholder(R.drawable.ic_rocket)

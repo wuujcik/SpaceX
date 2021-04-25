@@ -1,120 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.launchDetails.LaunchDetailsFragment">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/flight_name"
-        style="@style/Spacex.Details.Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/image"
-        app:layout_constraintEnd_toStartOf="@+id/image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/image"
-        tools:text="CRS-20" />
-
-    <ImageView
-        android:id="@+id/image"
-        style="@style/Spacex.Details.Icon"
-        app:layout_constraintDimensionRatio="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_rocket" />
-
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/date"
-        style="@style/Spacex.Details.Date"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/image"
-        tools:text="28 April 2021 14:17" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/failures_title"
-        style="@style/Spacex.Details.Failures"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/date"
-        android:text="@string/failures" />
-
-    <GridLayout
-        android:id="@+id/failures_layout"
-        style="@style/Spacex.Details.Grid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/failures_title">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/failure_time"
-            style="@style/Spacex.Details.GridItem"
+            android:id="@+id/flight_name"
+            style="@style/Spacex.Details.Name"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/when"
-            android:textAlignment="textStart" />
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/image"
+            app:layout_constraintEnd_toStartOf="@+id/image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/image"
+            tools:text="CRS-20" />
+
+        <ImageView
+            android:id="@+id/image"
+            style="@style/Spacex.Details.Icon"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_rocket" />
+
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/failure_time_data"
-            style="@style/Spacex.Details.GridItem"
+            android:id="@+id/date"
+            style="@style/Spacex.Details.Date"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="textEnd"
+            app:layout_constraintTop_toBottomOf="@+id/image"
             tools:text="28 April 2021 14:17" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/failure_altitude"
-            style="@style/Spacex.Details.GridItem"
+            android:id="@+id/details"
+            style="@style/Spacex.Details.Details"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/altitude"
-            android:textAlignment="textStart" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date"
+            tools:text="SpaceX's 20th and final Crew Resupply Mission under the original NASA CRS contract, this mission brings essential supplies to the International Space Station using SpaceX's reusable Dragon spacecraft. It is the last scheduled flight of a Dragon 1 capsule. (CRS-21 and up under the new Commercial Resupply Services 2 contract will use Dragon 2.) The external payload for this mission is the Bartolomeo ISS external payload hosting platform. Falcon 9 and Dragon will launch from SLC-40, Cape Canaveral Air Force Station and the booster will land at LZ-1. The mission will be complete with return and recovery of the Dragon capsule and down cargo." />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/read_more"
+            style="@style/Spacex.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/read_more"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/failure_altitude_data"
-            style="@style/Spacex.Details.GridItem"
+            android:id="@+id/rocket_title"
+            style="@style/Spacex.Details.Rocket"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="textEnd"
-            tools:text="n/a" />
+            android:text="@string/rocket"
+            app:layout_constraintTop_toBottomOf="@+id/read_more" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/failure_reason"
-            style="@style/Spacex.Details.GridItem"
+        <GridLayout
+            android:id="@+id/rocket_layout"
+            style="@style/Spacex.Details.Grid"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/reason"
-            android:textAlignment="textStart" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rocket_title">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/failure_reason_data"
-            style="@style/Spacex.Details.GridItem"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/rocket_name"
+                style="@style/Spacex.Details.GridItem"
+                android:layout_height="wrap_content"
+                android:text="@string/rocket_name"
+                android:textAlignment="textStart" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/rocket_name_data"
+                style="@style/Spacex.Details.GridItem"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                tools:text="Ricket Name" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/rocket_type"
+                style="@style/Spacex.Details.GridItem"
+                android:layout_height="wrap_content"
+                android:text="@string/rocket_type"
+                android:textAlignment="textStart" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/rocket_type_data"
+                style="@style/Spacex.Details.GridItem"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                tools:text="n/a" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/rocket_description"
+                style="@style/Spacex.Details.GridItem"
+                android:layout_height="wrap_content"
+                android:text="@string/rocket_description"
+                android:textAlignment="textStart" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/rocket_description_data"
+                style="@style/Spacex.Details.GridItem"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                tools:text="merlin engine failure" />
+        </GridLayout>
+
+        <ImageView
+            android:id="@+id/rocket_img"
+            style="@style/Spacex.Rocket"
+            android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
-            android:textAlignment="textEnd"
-            tools:text="merlin engine failure" />
-    </GridLayout>
+            app:layout_constraintTop_toBottomOf="@+id/rocket_layout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:src="@drawable/ic_rocket" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/details"
-        style="@style/Spacex.Details.Details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/failures_layout"
-        tools:text="SpaceX's 20th and final Crew Resupply Mission under the original NASA CRS contract, this mission brings essential supplies to the International Space Station using SpaceX's reusable Dragon spacecraft. It is the last scheduled flight of a Dragon 1 capsule. (CRS-21 and up under the new Commercial Resupply Services 2 contract will use Dragon 2.) The external payload for this mission is the Bartolomeo ISS external payload hosting platform. Falcon 9 and Dragon will launch from SLC-40, Cape Canaveral Air Force Station and the booster will land at LZ-1. The mission will be complete with return and recovery of the Dragon capsule and down cargo." />
-
-
-
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/read_more"
-        style="@style/Spacex.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/read_more"
-        app:layout_constraintTop_toBottomOf="@+id/details"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,12 +1,15 @@
 package com.wuujcik.spacex.ui.launchDetails
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import coil.load
+import com.wuujcik.spacex.R
 import com.wuujcik.spacex.databinding.FragmentLaunchDetailsBinding
 import com.wuujcik.spacex.persistence.Launch
 import com.wuujcik.spacex.utils.formatDateTime
@@ -35,6 +38,7 @@ class LaunchDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         launch = args.data
+        launchDetailsViewModel.getRocket(launch?.rocketId)
 
         with(binding) {
 
@@ -43,28 +47,26 @@ class LaunchDetailsFragment : Fragment() {
             if (dateUnix != null) {
                 date.text = context?.let { formatDateTime(it, Date(dateUnix * 1000)) }
             }
-
-            val failuresArray = launch?.failures
-
-            if (!failuresArray.isNullOrEmpty()) {
-                failuresTitle.visibility = View.VISIBLE
-                failuresLayout.visibility = View.VISIBLE
-                val altitude = failuresArray[0]?.altitude ?: 0 // TODO: show more than 1
-                failureTimeData.text = failuresArray[0]?.time.toString() // TODO: show more than 1
-                failureAltitudeData.text = altitude.toString()
-                failureReasonData.text = failuresArray[0]?.reason.toString() // TODO: show more than 1
+            val img = launch?.links?.patch?.small
+            if (img != null) {
+                image.load(img) {
+                    placeholder(R.drawable.ic_rocket)
+                }
             } else {
-                failuresTitle.visibility = View.GONE
-                failuresLayout.visibility = View.GONE
+                image.load(R.drawable.ic_rocket)
             }
-
             details.text = launch?.details
-
             readMore.setOnClickListener {
                 launchDetailsViewModel.sendIntentForUrl(launch?.links?.article, context)
             }
-        }
 
+            launchDetailsViewModel.rocket.observe(viewLifecycleOwner, { rocket ->
+                rocketNameData.text = rocket?.name
+                rocketTypeData.text = rocket?.type
+                rocketDescriptionData.text = rocket?.description
+                rocketImg.load(rocket?.flickr_images?.get(0))
+            })
+        }
     }
 
     companion object {
