@@ -20,7 +20,7 @@
         android:layout_height="match_parent"
         android:background="#8F000000" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/company_name"
         style="@style/Spacex.CompanyInfo.Name"
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/founder"
                 style="@style/Spacex.CompanyInfo"
                 android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Founded by Elon Musk\nin 2002" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/summary"
                 style="@style/Spacex.CompanyInfo"
                 android:layout_width="match_parent"
@@ -62,7 +62,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/founder"
                 tools:text="SpaceX designs, manufactures and launches advanced rockets and spacecraft. The company was founded in 2002 to revolutionize space technology, with the ultimate goal of enabling people to live on other planets." />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/resources"
                 style="@style/Spacex.CompanyInfo.Title"
                 android:layout_width="match_parent"
@@ -82,56 +82,56 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/resources">
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/employees"
                     style="@style/Spacex.CompanyInfo.Details"
                     android:layout_height="wrap_content"
                     android:text="@string/employees"
                     android:textAlignment="textStart" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/employees_data"
                     style="@style/Spacex.CompanyInfo.Details"
                     android:layout_height="wrap_content"
                     android:textAlignment="textEnd"
                     tools:text="8000" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/vehicles"
                     style="@style/Spacex.CompanyInfo.Details"
                     android:layout_height="wrap_content"
                     android:text="@string/vehicles"
                     android:textAlignment="textStart" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/vehicles_data"
                     style="@style/Spacex.CompanyInfo.Details"
                     android:layout_height="wrap_content"
                     android:textAlignment="textEnd"
                     tools:text="3" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/launch_sites"
                     style="@style/Spacex.CompanyInfo.Details"
                     android:layout_height="wrap_content"
                     android:text="@string/launch_sites"
                     android:textAlignment="textStart" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/launch_sites_data"
                     style="@style/Spacex.CompanyInfo.Details"
                     android:layout_height="wrap_content"
                     android:textAlignment="textEnd"
                     tools:text="3" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/test_sites"
                     style="@style/Spacex.CompanyInfo.Details"
                     android:layout_height="wrap_content"
                     android:text="@string/test_sites"
                     android:textAlignment="textStart" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/test_sites_data"
                     style="@style/Spacex.CompanyInfo.Details"
                     android:layout_height="wrap_content"
@@ -140,7 +140,7 @@
 
             </GridLayout>
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/valuation"
                 style="@style/Spacex.CompanyInfo.Title"
                 android:layout_width="match_parent"
@@ -151,7 +151,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/resources_layout" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/valuation_data"
                 style="@style/Spacex.CompanyInfo"
                 android:layout_width="match_parent"
@@ -162,7 +162,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/valuation"
                 tools:text="52000000000" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/organisation"
                 style="@style/Spacex.CompanyInfo.Title"
                 android:layout_width="match_parent"
@@ -182,56 +182,56 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/organisation">
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/ceo"
                     style="@style/Spacex.CompanyInfo.Details"
                     android:layout_height="wrap_content"
                     android:text="@string/ceo"
                     android:textAlignment="textStart" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/ceo_data"
                     style="@style/Spacex.CompanyInfo.Details"
                     android:layout_height="wrap_content"
                     android:textAlignment="textEnd"
                     tools:text="Elon Musk" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/cto"
                     style="@style/Spacex.CompanyInfo.Details"
                     android:layout_height="wrap_content"
                     android:text="@string/cto"
                     android:textAlignment="textStart" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/cto_data"
                     style="@style/Spacex.CompanyInfo.Details"
                     android:layout_height="wrap_content"
                     android:textAlignment="textEnd"
                     tools:text="Elon Musk" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/coo"
                     style="@style/Spacex.CompanyInfo.Details"
                     android:layout_height="wrap_content"
                     android:text="@string/coo"
                     android:textAlignment="textStart" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/coos_data"
                     style="@style/Spacex.CompanyInfo.Details"
                     android:layout_height="wrap_content"
                     android:textAlignment="textEnd"
                     tools:text="Gwynne Shotwell" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/cto_propulsion"
                     style="@style/Spacex.CompanyInfo.Details"
                     android:layout_height="wrap_content"
                     android:text="@string/cto_propulsion"
                     android:textAlignment="textStart" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/cto_propulsion_data"
                     style="@style/Spacex.CompanyInfo.Details"
                     android:layout_height="wrap_content"

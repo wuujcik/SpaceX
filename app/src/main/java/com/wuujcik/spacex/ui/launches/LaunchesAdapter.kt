@@ -60,7 +60,7 @@ class LaunchesAdapter :
 
 
     companion object {
-        const val TAG = "UpcomingLaunchesAdapter"
+        const val TAG = "LaunchesAdapter"
         var diffCallback: DiffUtil.ItemCallback<Launch> =
             object : DiffUtil.ItemCallback<Launch>() {
 

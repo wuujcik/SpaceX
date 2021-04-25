@@ -12,26 +12,44 @@ import retrofit2.awaitResponse
 class LaunchProvider {
 
     // The internal MutableLiveData Launch that stores the most recent response
-    private val _upcomingLaunches = MutableLiveData<List<Launch?>?>()
+    private val _launches = MutableLiveData<List<Launch?>?>()
 
     // The external immutable LiveData for the response CompanyInfo
-    val upcomingLaunches: LiveData<List<Launch?>?>
-        get() = _upcomingLaunches
+    val launches: LiveData<List<Launch?>?>
+        get() = _launches
 
 
-    fun getUpcomingLaunches(
+    fun getLaunches(
         scope: CoroutineScope
     ) {
         scope.launch {
             try {
-                val upcomingLaunches: List<Launch?>? =
-                    SpaceXApi.retrofitService.getUpcomingLaunches()
+                val listOfLaunches: List<Launch?>? =
+                    SpaceXApi.retrofitService.getAllLaunches()
                         .awaitResponse()
                         .body()
-                _upcomingLaunches.value = upcomingLaunches
+                _launches.value = listOfLaunches
             } catch (e: Exception) {
-                _upcomingLaunches.value = null
-                Log.e(TAG, "getUpcomingLaunches failed with exception: $e")
+                _launches.value = null
+                Log.e(TAG, "getLaunches failed with exception: $e")
+            }
+        }
+    }
+
+    fun getFilteredLaunches(
+            scope: CoroutineScope,
+            query: String
+    ) {
+        scope.launch {
+            try {
+                val listOfLaunches: List<Launch?>? =
+                        SpaceXApi.retrofitService.getFilteredLaunches(query)
+                                .awaitResponse()
+                                .body()
+                _launches.value = listOfLaunches
+            } catch (e: Exception) {
+                _launches.value = null
+                Log.e(TAG, "getFilteredLaunches failed with exception: $e")
             }
         }
     }

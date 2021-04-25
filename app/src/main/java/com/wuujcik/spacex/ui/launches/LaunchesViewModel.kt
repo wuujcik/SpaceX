@@ -13,10 +13,13 @@ class LaunchesViewModel : ViewModel() {
         LaunchProvider()
     }
 
-    val upcomingLaunches: LiveData<List<Launch?>?> = provider.upcomingLaunches
+    val launches: LiveData<List<Launch?>?> = provider.launches
 
-    fun requestUpcomingLaunches() {
-        provider.getUpcomingLaunches(viewModelScope)
-        Log.e("TAG", "Requesting upcoming launches")
+    fun requestLaunches() {
+        provider.getLaunches(viewModelScope)
+    }
+
+    fun filterLaunches() {
+        provider.getFilteredLaunches(viewModelScope, "")
     }
 }

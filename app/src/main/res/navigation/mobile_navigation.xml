@@ -18,16 +18,18 @@
         tools:layout="@layout/fragment_launches">
         <action
             android:id="@+id/action_nav_launches_to_launchDetailsFragment"
-            app:destination="@id/launch_details_fragment" />
+            app:destination="@id/nav_launch_details_fragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/launch_details_fragment"
+        android:id="@+id/nav_launch_details_fragment"
         android:name="com.wuujcik.spacex.ui.launchDetails.LaunchDetailsFragment"
-        android:label="LaunchDetailsFragment">
+        android:label="Flight #{number}" >
         <argument
             android:name="data"
-            app:argType="com.wuujcik.spacex.persistence.Launch"
-            app:nullable="true" />
+            app:argType="com.wuujcik.spacex.persistence.Launch" />
+        <argument
+            android:name="number"
+            app:argType="integer" />
     </fragment>
 </navigation>

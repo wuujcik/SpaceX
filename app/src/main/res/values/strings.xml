@@ -21,6 +21,12 @@
     <string name="coo">COO</string>
     <string name="cto_propulsion">CTO Propulsion</string>
 
-    <!-- Upcoming Launches -->
+    <!-- Launches -->
     <string name="flight_no">Flight #%1$d</string>
+    <string name="launch_details">Details of flight #%1$d</string>
+    <string name="failures">Failures</string>
+    <string name="when">When</string>
+    <string name="altitude">Altitude</string>
+    <string name="reason">Reason</string>
+    <string name="read_more">Read more</string>
 </resources>

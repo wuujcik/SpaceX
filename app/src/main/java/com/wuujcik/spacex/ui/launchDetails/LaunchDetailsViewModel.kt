@@ -1,20 +1,18 @@
 package com.wuujcik.spacex.ui.launchDetails
 
-import androidx.lifecycle.LiveData
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.wuujcik.spacex.persistence.Launch
-import com.wuujcik.spacex.providers.LaunchProvider
 
 class LaunchDetailsViewModel : ViewModel() {
 
-    private val provider: LaunchProvider by lazy {
-        LaunchProvider()
-    }
-
-//    val launchDetails: LiveData<Launch?> = provider.launchDetails
-
-    fun requestLaunchDetails() {
-//        provider.getLaunchDetails(viewModelScope)
+    fun sendIntentForUrl(url: String?, context: Context?) {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(url)
+        context?.let {
+            startActivity(context, intent, null)
+        }
     }
 }

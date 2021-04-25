@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
     <style name="Spacex" />
 
     <style name="Spacex.CompanyInfo">
         <item name="android:textColor">?attr/colorOnPrimary</item>
         <item name="android:layout_margin">@dimen/standard_margin</item>
-        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle2</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle2
+        </item>
     </style>
 
     <style name="Spacex.CompanyInfo.Name">
-        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline4</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline4
+        </item>
     </style>
 
     <style name="Spacex.CompanyInfo.Founded">
@@ -18,7 +21,8 @@
 
 
     <style name="Spacex.CompanyInfo.Title">
-        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline6</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline6
+        </item>
     </style>
 
     <style name="Spacex.CompanyInfo.Details">
@@ -33,25 +37,26 @@
         <item name="android:layout_marginEnd">@dimen/big_margin</item>
     </style>
 
-    <style name="Spacex.RecyclerList" >
+    <style name="Spacex.RecyclerList">
         <item name="android:layout_margin">@dimen/micro_margin</item>
         <item name="android:background">?attr/colorPrimaryVariant</item>
     </style>
 
-    <style name="Spacex.RecyclerList.FlightNo" >
+    <style name="Spacex.RecyclerList.FlightNo">
         <item name="android:layout_margin">@dimen/small_margin</item>
         <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body2</item>
         <item name="android:textColor">?attr/colorOnPrimary</item>
         <item name="android:paddingTop">@dimen/inner_padding</item>
     </style>
 
-    <style name="Spacex.RecyclerList.Name" >
+    <style name="Spacex.RecyclerList.Name">
         <item name="android:layout_margin">@dimen/small_margin</item>
-        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle1</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle1
+        </item>
         <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
 
-    <style name="Spacex.RecyclerList.Date" >
+    <style name="Spacex.RecyclerList.Date">
         <item name="android:layout_margin">@dimen/small_margin</item>
         <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body2</item>
         <item name="android:textColor">?attr/colorOnPrimary</item>
@@ -59,10 +64,63 @@
     </style>
 
 
-    <style name="Spacex.RecyclerList.Icon" >
+    <style name="Spacex.RecyclerList.Icon">
         <item name="android:layout_margin">@dimen/small_margin</item>
         <item name="android:layout_width">@dimen/icon_size</item>
         <item name="android:layout_height">@dimen/icon_size</item>
+    </style>
+
+
+    <style name="Spacex.Details">
+        <item name="android:layout_margin">@dimen/standard_margin</item>
+    </style>
+
+    <style name="Spacex.Details.Name">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle1
+        </item>
+    </style>
+
+    <style name="Spacex.Details.Icon">
+        <item name="android:layout_margin">@dimen/small_margin</item>
+        <item name="android:layout_width">@dimen/icon_size</item>
+        <item name="android:layout_height">@dimen/icon_size</item>
+    </style>
+
+    <style name="Spacex.Details.FlightNo">
+        <item name="android:layout_marginStart">0dp</item>
+    </style>
+
+    <style name="Spacex.Details.Date">
+
+    </style>
+
+    <style name="Spacex.Details.Failures">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline6</item>
+    </style>
+
+
+    <style name="Spacex.Details.Grid">
+        <item name="android:columnCount">2</item>
+        <item name="android:layout_marginStart">@dimen/big_margin</item>
+        <item name="android:layout_marginEnd">@dimen/big_margin</item>
+    </style>
+
+    <style name="Spacex.Details.GridItem">
+        <item name="android:layout_margin">@dimen/inner_margin</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+    <style name="Spacex.Details.Details">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body2</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:justificationMode" tools:targetApi="o">inter_word</item>
+    </style>
+
+
+    <style name="Spacex.Button"  parent="Widget.MaterialComponents.Button" >
+        <item name="android:layout_margin">@dimen/standard_margin</item>
+        <item name="backgroundTint">?attr/colorAccent</item>
     </style>
 
 </resources>
