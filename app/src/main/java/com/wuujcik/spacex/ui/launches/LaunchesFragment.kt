@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wuujcik.spacex.databinding.FragmentLaunchesBinding
 import androidx.navigation.fragment.findNavController
+import com.wuujcik.spacex.ui.FilterDialog
 
 class LaunchesFragment : Fragment() {
 
@@ -38,6 +39,8 @@ class LaunchesFragment : Fragment() {
 
             filter.setOnClickListener {
                 // TODO implement filtering
+                val dialog = FilterDialog()
+                dialog.show(parentFragmentManager, FilterDialog.TAG)
             }
 
             launchesRecyclerView.adapter = adapter

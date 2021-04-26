@@ -137,6 +137,11 @@
         <item name="android:layout_margin">@dimen/standard_margin</item>
     </style>
 
+    <style name="Spacex.Button.Dialog"  parent="Widget.MaterialComponents.Button" >
+        <item name="backgroundTint">?attr/colorAccent</item>
+        <item name="android:layout_margin">@dimen/standard_margin</item>
+    </style>
+
     <attr name="bcg_picture" format="reference"/>
 
 </resources>

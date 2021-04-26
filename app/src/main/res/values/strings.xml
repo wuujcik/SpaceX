@@ -30,4 +30,10 @@
     <string name="rocket_description">Description</string>
     <string name="read_more">Read more</string>
     <string name="filter">Filter</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="filters">Filters</string>
+    <string name="launch_date">Launch date</string>
+    <string name="from">From:</string>
+    <string name="to">To:</string>
 </resources>
