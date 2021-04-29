@@ -36,4 +36,7 @@
     <string name="launch_date">Launch date</string>
     <string name="from">From:</string>
     <string name="to">To:</string>
+    <string name="future_launch">This flight has not yet happen</string>
+    <string name="no_data">No data</string>
+    <string name="launch_when">When: %1$s</string>
 </resources>

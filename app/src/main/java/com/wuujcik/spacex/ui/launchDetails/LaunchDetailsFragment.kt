@@ -9,8 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import coil.load
+import com.wuujcik.spacex.R
 import com.wuujcik.spacex.databinding.FragmentLaunchDetailsBinding
-import com.wuujcik.spacex.persistence.Launch
+import com.wuujcik.spacex.persistence.launch.Launch
 import com.wuujcik.spacex.utils.formatDateTime
 import java.util.*
 
@@ -44,12 +45,26 @@ class LaunchDetailsFragment : Fragment() {
             flightName.text = launch?.name
             val dateUnix = launch?.date_unix
             if (dateUnix != null) {
-                date.text = context?.let { formatDateTime(it, Date(dateUnix * 1000)) }
+                context?.let {
+                    val datetime =formatDateTime(it, Date(dateUnix * 1000))
+                    date.text = getString(R.string.launch_when, datetime)
+                }
             }
             image.load(launch?.links?.patch?.small)
-            details.text = launch?.details
-            readMore.setOnClickListener {
-                launchDetailsViewModel.sendIntentForUrl(launch?.links?.article, context)
+
+            if (launch?.upcoming == true) {
+                details.text = launch?.details ?: getString(R.string.future_launch)
+            } else {
+                details.text = launch?.details ?: getString(R.string.no_data)
+            }
+
+            if(launch?.links?.article.isNullOrEmpty()){
+                readMore.visibility = View.INVISIBLE
+            } else {
+                readMore.visibility = View.VISIBLE
+                readMore.setOnClickListener {
+                    launchDetailsViewModel.sendIntentForUrl(launch?.links?.article, context)
+                }
             }
 
             launchDetailsViewModel.rocket.observe(viewLifecycleOwner, { rocket ->

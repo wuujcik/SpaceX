@@ -2,21 +2,30 @@ package com.wuujcik.spacex.persistence
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 
 data class Rocket(
-     var name: String? = null,
-     var type: String? = null,
-     var description: String? = null,
-     var flickr_images: List<String>? = null
-): Parcelable {
+    @SerializedName("id")
+    var id: String = "0",
+    @SerializedName("name")
+    var name: String? = null,
+    @SerializedName("type")
+    var type: String? = null,
+    @SerializedName("description")
+    var description: String? = null,
+    @SerializedName("flickr_images")
+    var flickr_images: List<String>? = null
+) : Parcelable {
     constructor(parcel: Parcel) : this(
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.createStringArrayList()) {
-    }
+        parcel.readString() ?: "0",
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.createStringArrayList()
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(id)
         parcel.writeString(name)
         parcel.writeString(type)
         parcel.writeString(description)

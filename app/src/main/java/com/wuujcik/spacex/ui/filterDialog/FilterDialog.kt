@@ -1,16 +1,19 @@
-package com.wuujcik.spacex.ui
+package com.wuujcik.spacex.ui.filterDialog
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.viewModels
 import com.wuujcik.spacex.databinding.DialogFilterBinding
+import com.wuujcik.spacex.ui.launches.LaunchesViewModel
 import com.wuujcik.spacex.utils.resizeDialogWindowToMatchScreen
 
 
 class FilterDialog : DialogFragment() {
 
+    private val launchesViewModel by viewModels<LaunchesViewModel>()
     private lateinit var binding: DialogFilterBinding
 
     override fun onCreateView(
@@ -29,13 +32,21 @@ class FilterDialog : DialogFragment() {
 
         with(binding) {
 
-            datePickerFrom.updateDate(2000, 11, 1) // TODO
+            datePickerFrom.updateDate(2010, 11, 1) // TODO
+            datePickerTo.updateDate(2015, 11, 1) // TODO
 
-
-            confirmButton.setOnClickListener { dialog?.dismiss() } //TODO
+            confirmButton.setOnClickListener { applyFilters() }
             cancelButton.setOnClickListener { dialog?.dismiss() }
         }
     }
+
+    private fun applyFilters() {
+        val startDate = launchesViewModel.convertPickerToDate(binding.datePickerFrom)
+        val endDate = launchesViewModel.convertPickerToDate(binding.datePickerTo)
+        launchesViewModel.applyFilter(startDate, endDate)
+        dialog?.dismiss()
+    }
+
 
     override fun onResume() {
         super.onResume()

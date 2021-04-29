@@ -54,6 +54,9 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
+    // OkHttp
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+
     // Retrofit & Gson
     def retrofit_version = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -68,6 +71,9 @@ dependencies {
 
     // Coil
     implementation "io.coil-kt:coil:1.1.1"
+
+    // Paging
+    implementation "androidx.paging:paging-runtime-ktx:2.1.2"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

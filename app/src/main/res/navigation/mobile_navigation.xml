@@ -27,7 +27,7 @@
         android:label="Flight #{number}" >
         <argument
             android:name="data"
-            app:argType="com.wuujcik.spacex.persistence.Launch" />
+            app:argType="com.wuujcik.spacex.persistence.launch.Launch" />
         <argument
             android:name="number"
             app:argType="integer" />

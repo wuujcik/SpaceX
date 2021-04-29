@@ -1,7 +1,8 @@
-package com.wuujcik.spacex.persistence
+package com.wuujcik.spacex.persistence.companyInfo
 
 import android.os.Parcel
 import android.os.Parcelable
+
 
 data class CompanyInfo(
     var id: String = "0",
@@ -70,6 +71,7 @@ data class CompanyInfo(
         }
     }
 }
+
 
 data class Headquarters(
     var id: Int = 0,
