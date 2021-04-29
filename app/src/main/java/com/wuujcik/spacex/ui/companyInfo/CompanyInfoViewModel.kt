@@ -1,10 +1,9 @@
 package com.wuujcik.spacex.ui.companyInfo
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.wuujcik.spacex.persistence.CompanyInfo
+import com.wuujcik.spacex.persistence.companyInfo.CompanyInfo
 import com.wuujcik.spacex.providers.CompanyInfoProvider
 
 class CompanyInfoViewModel : ViewModel() {

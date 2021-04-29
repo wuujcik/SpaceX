@@ -10,13 +10,15 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wuujcik.spacex.databinding.FragmentLaunchesBinding
 import androidx.navigation.fragment.findNavController
+import androidx.paging.PagedList
+import com.wuujcik.spacex.persistence.launch.Launch
+import com.wuujcik.spacex.ui.filterDialog.FilterDialog
 
 class LaunchesFragment : Fragment() {
 
     private val launchesViewModel by viewModels<LaunchesViewModel>()
 
     private lateinit var binding: FragmentLaunchesBinding
-
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -31,35 +33,27 @@ class LaunchesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        launchesViewModel.requestLaunches()
         val adapter = LaunchesAdapter()
 
         with(binding) {
-
-            filter.setOnClickListener {
-                // TODO implement filtering
-            }
-
             launchesRecyclerView.adapter = adapter
             launchesRecyclerView.layoutManager = LinearLayoutManager(context)
-
-            launchesViewModel.launches.observe(viewLifecycleOwner, { launches ->
-                if (launches.isNullOrEmpty()) {
-                    // TODO
-//                    progress_bar_overlay?.visibility = View.VISIBLE
-                } else {
-//                    progress_bar_overlay?.visibility = View.GONE
-                    adapter.submitList(launches)
-                    adapter.onItemClicked = { launch ->
-                        val number = launch.flight_number // for the toolbar title
-                        if (number != null) {
-                            findNavController().navigate(
-                                    LaunchesFragmentDirections.actionNavLaunchesToLaunchDetailsFragment(launch, number)
-                            )
-                        }
-
-                    }
+            adapter.onItemClicked = { launch ->
+                val number = launch.flight_number // for the toolbar title
+                if (number != null) {
+                    findNavController().navigate(
+                        LaunchesFragmentDirections.actionNavLaunchesToLaunchDetailsFragment(launch, number)
+                    )
                 }
+            }
+            filter.setOnClickListener {
+                // TODO implement filtering
+                val dialog = FilterDialog()
+                dialog.show(parentFragmentManager, FilterDialog.TAG)
+            }
+
+            launchesViewModel.launches.observe(viewLifecycleOwner, { list: PagedList<Launch>? ->
+                (adapter as? LaunchesAdapter)?.submitList(list)
             })
         }
     }

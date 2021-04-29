@@ -3,7 +3,7 @@ package com.wuujcik.spacex.providers
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.wuujcik.spacex.persistence.CompanyInfo
+import com.wuujcik.spacex.persistence.companyInfo.CompanyInfo
 import com.wuujcik.spacex.webservices.SpaceXApi.retrofitService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch

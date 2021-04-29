@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/image"
-            tools:text="28 April 2021 14:17" />
+            tools:text="When: 28 April 2021 14:17" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/details"
