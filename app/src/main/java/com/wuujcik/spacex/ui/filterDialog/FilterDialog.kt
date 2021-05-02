@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import com.wuujcik.spacex.databinding.DialogFilterBinding
+import com.wuujcik.spacex.ui.launches.LaunchesFragment
 import com.wuujcik.spacex.ui.launches.LaunchesViewModel
 import com.wuujcik.spacex.utils.resizeDialogWindowToMatchScreen
+import java.util.*
 
 
 class FilterDialog : DialogFragment() {
@@ -43,10 +45,9 @@ class FilterDialog : DialogFragment() {
     private fun applyFilters() {
         val startDate = launchesViewModel.convertPickerToDate(binding.datePickerFrom)
         val endDate = launchesViewModel.convertPickerToDate(binding.datePickerTo)
-        launchesViewModel.applyFilter(startDate, endDate)
+        (targetFragment as LaunchesFragment).onFiltersApplied(startDate, endDate)
         dialog?.dismiss()
     }
-
 
     override fun onResume() {
         super.onResume()
@@ -57,3 +58,10 @@ class FilterDialog : DialogFragment() {
         const val TAG = "DialogFragment"
     }
 }
+
+
+interface ApplyFilterDialogDelegate {
+    // Called when dialog is about to close.
+    fun onFiltersApplied(startDate: Date, endDate: Date)
+}
+

@@ -1,7 +1,6 @@
 package com.wuujcik.spacex.ui.launches
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,22 +11,24 @@ import com.wuujcik.spacex.databinding.FragmentLaunchesBinding
 import androidx.navigation.fragment.findNavController
 import androidx.paging.PagedList
 import com.wuujcik.spacex.persistence.launch.Launch
+import com.wuujcik.spacex.ui.filterDialog.ApplyFilterDialogDelegate
 import com.wuujcik.spacex.ui.filterDialog.FilterDialog
+import java.util.*
 
-class LaunchesFragment : Fragment() {
+class LaunchesFragment : Fragment(), ApplyFilterDialogDelegate {
 
     private val launchesViewModel by viewModels<LaunchesViewModel>()
 
     private lateinit var binding: FragmentLaunchesBinding
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         return FragmentLaunchesBinding.inflate(inflater, container, false)
-                .also {
-                    binding = it
-                }.root
+            .also {
+                binding = it
+            }.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,20 +43,37 @@ class LaunchesFragment : Fragment() {
                 val number = launch.flight_number // for the toolbar title
                 if (number != null) {
                     findNavController().navigate(
-                        LaunchesFragmentDirections.actionNavLaunchesToLaunchDetailsFragment(launch, number)
+                        LaunchesFragmentDirections.actionNavLaunchesToLaunchDetailsFragment(
+                            launch,
+                            number
+                        )
                     )
                 }
             }
-            filter.setOnClickListener {
-                // TODO implement filtering
-                val dialog = FilterDialog()
-                dialog.show(parentFragmentManager, FilterDialog.TAG)
-            }
 
-            launchesViewModel.launches.observe(viewLifecycleOwner, { list: PagedList<Launch>? ->
-                (adapter as? LaunchesAdapter)?.submitList(list)
-            })
+            observeLaunches()
         }
+       binding.filter.setOnClickListener {
+            val dialog = FilterDialog()
+            dialog.setTargetFragment(this, 0)
+            dialog.show(parentFragmentManager, FilterDialog.TAG)
+        }
+    }
+
+    override fun onFiltersApplied(startDate: Date, endDate: Date) {
+        removeLaunchesObservers()
+        launchesViewModel.applyFilter(startDate, endDate)
+        observeLaunches()
+    }
+
+    private fun observeLaunches() {
+        launchesViewModel.launches.observe(viewLifecycleOwner, { list: PagedList<Launch>? ->
+            (binding.launchesRecyclerView.adapter as? LaunchesAdapter)?.submitList(list)
+        })
+    }
+
+    private fun removeLaunchesObservers() {
+        launchesViewModel.launches.removeObservers(viewLifecycleOwner)
     }
 
     companion object {

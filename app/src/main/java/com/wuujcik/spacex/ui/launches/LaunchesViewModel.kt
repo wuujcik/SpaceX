@@ -8,24 +8,30 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagedList
 import androidx.paging.toLiveData
 import com.wuujcik.spacex.persistence.launch.Launch
-import com.wuujcik.spacex.persistence.launch.LaunchesDataSource
+import com.wuujcik.spacex.persistence.launch.LaunchesDataSourceFactory
+import com.wuujcik.spacex.utils.toIsoDate
+import org.json.JSONObject
 import java.util.*
 
 
 class LaunchesViewModel(app: Application) : AndroidViewModel(app) {
 
-    private fun getLaunches(): LaunchesDataSource.LaunchesDataSourceFactory {
-        return LaunchesDataSource(viewModelScope).LaunchesDataSourceFactory()
+    private val queryArgs = JSONObject()
+    private fun getLaunches(queryArgs: JSONObject): LaunchesDataSourceFactory {
+        return LaunchesDataSourceFactory(queryArgs, viewModelScope)
     }
 
-    val launches: LiveData<PagedList<Launch>> = getLaunches().toLiveData(10)
-
+    var launches: LiveData<PagedList<Launch>> = getLaunches(queryArgs).toLiveData(10)
 
     fun applyFilter(
         startDate: Date,
         endDate: Date
     ) {
-//TODO
+        val datesUtsFilter = JSONObject().put("\$gte", startDate.toIsoDate())
+            .put("\$lte", endDate.toIsoDate())
+        queryArgs.put("date_utc", datesUtsFilter)
+        launches = getLaunches(queryArgs).toLiveData(10)
+        launches.value?.dataSource?.invalidate()
     }
 
 
