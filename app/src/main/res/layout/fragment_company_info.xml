@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scaleType="centerCrop"
     tools:context=".ui.companyInfo.CompanyInfoFragment">
-
 
     <ImageView
         android:layout_width="match_parent"
@@ -14,26 +12,27 @@
         android:scaleType="centerCrop"
         android:src="?attr/bcg_picture" />
 
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/company_name"
-        style="@style/Spacex.CompanyInfo.Name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="SpaceX" />
-
     <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/company_name">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/company_name"
+                style="@style/Spacex.CompanyInfo.Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="SpaceX" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/founder"
@@ -43,7 +42,7 @@
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/company_name"
                 tools:text="Founded by Elon Musk\nin 2002" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -173,6 +172,8 @@
                 style="@style/Spacex.CompanyInfo.Grid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/standard_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/organisation">
@@ -213,7 +214,7 @@
                     android:textAlignment="textStart" />
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/coos_data"
+                    android:id="@+id/cos_data"
                     style="@style/Spacex.CompanyInfo.Details"
                     android:layout_height="wrap_content"
                     android:textAlignment="textEnd"

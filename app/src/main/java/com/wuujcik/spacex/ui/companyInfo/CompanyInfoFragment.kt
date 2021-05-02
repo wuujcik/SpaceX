@@ -35,21 +35,27 @@ class CompanyInfoFragment : Fragment() {
 
         companyInfoViewModel.requestCompanyInfo()
 
-        with(binding) {
 
-            companyInfoViewModel.companyInfo.observe(viewLifecycleOwner, { info ->
-                binding.companyName.text = info?.name
-                binding.founder.text =
+
+        companyInfoViewModel.companyInfo.observe(viewLifecycleOwner, { info ->
+            with(binding) {
+                companyName.text = info?.name
+                founder.text =
                     context?.resources?.getString(R.string.founded, info?.founder, info?.founded)
-                binding.summary.text = info?.summary
-                binding.employeesData.text = info?.employees.toString() // TODO: use some nicer formatting of numbers
-                binding.vehiclesData.text = info?.vehicles.toString()
-                binding.launchSitesData.text = info?.launch_sites.toString()
-                binding.testSitesData.text = info?.test_sites.toString()
-                binding.valuationData.text = info?.valuation.toString() // TODO: add currency formatting
-            })
-        }
-
+                summary.text = info?.summary
+                employeesData.text =
+                    info?.employees.toString() // TODO: use some nicer formatting of numbers
+                vehiclesData.text = info?.vehicles.toString()
+                launchSitesData.text = info?.launch_sites.toString()
+                testSitesData.text = info?.test_sites.toString()
+                valuationData.text =
+                    info?.valuation.toString() // TODO: add currency formatting
+                ceoData.text = info?.ceo
+                ctoData.text = info?.cto
+                cosData.text = info?.coo
+                ctoPropulsionData.text = info?.cto_propulsion
+            }
+        })
     }
 
     companion object {
