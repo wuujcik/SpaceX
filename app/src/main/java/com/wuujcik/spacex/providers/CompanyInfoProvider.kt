@@ -1,22 +1,23 @@
 package com.wuujcik.spacex.providers
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.wuujcik.spacex.persistence.companyInfo.CompanyInfo
+import com.wuujcik.spacex.persistence.companyInfo.CompanyInfoDao
+import com.wuujcik.spacex.persistence.companyInfo.CompanyInfoDatabase
 import com.wuujcik.spacex.webservices.SpaceXApi.retrofitService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import retrofit2.awaitResponse
 
-class CompanyInfoProvider {
+class CompanyInfoProvider (context: Context) {
 
-    // The internal MutableLiveData CompanyInfo that stores the most recent response
-    private val _response = MutableLiveData<CompanyInfo?>()
+    private val companyInfoDao: CompanyInfoDao by lazy {
+        CompanyInfoDatabase.getDatabase(context).companyInfoDao()
+    }
 
-    // The external immutable LiveData for the response CompanyInfo
-    val companyInfo: LiveData<CompanyInfo?>
-        get() = _response
+    val companyInfo: LiveData<CompanyInfo?> = companyInfoDao.getCompanyInfo()
 
     fun getCompanyInfo(
         scope: CoroutineScope
@@ -27,13 +28,13 @@ class CompanyInfoProvider {
                     retrofitService.getCompanyInfo()
                         .awaitResponse()
                         .body()
-                _response.value = companyInfo
+                companyInfoDao.insert(companyInfo)
             } catch (e: Exception) {
-                _response.value = null
                 Log.e(TAG, "getCompanyInfo failed with exception: $e")
             }
         }
     }
+
     companion object {
         const val TAG = "CompanyInfoProvider"
     }

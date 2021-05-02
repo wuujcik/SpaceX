@@ -2,23 +2,42 @@ package com.wuujcik.spacex.persistence.companyInfo
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-
+@Entity(tableName = "company_info")
 data class CompanyInfo(
+    @PrimaryKey(autoGenerate = false)
+    @ColumnInfo(name = "id")
     var id: String = "0",
+    @ColumnInfo(name = "name")
     var name: String? = null,
+    @ColumnInfo(name = "founder")
     var founder: String? = null,
+    @ColumnInfo(name = "founded")
     var founded: Int? = null,
+    @ColumnInfo(name = "employees")
     var employees: Int? = null,
+    @ColumnInfo(name = "vehicles")
     var vehicles: Int? = null,
+    @ColumnInfo(name = "launch_sites")
     var launch_sites: Int? = null,
+    @ColumnInfo(name = "test_sites")
     var test_sites: Int? = null,
+    @ColumnInfo(name = "ceo")
     var ceo: String? = null,
+    @ColumnInfo(name = "cto")
     var cto: String? = null,
+    @ColumnInfo(name = "coo")
     var coo: String? = null,
+    @ColumnInfo(name = "cto_propulsion")
     var cto_propulsion: String? = null,
+    @ColumnInfo(name = "valuation")
     var valuation: Long? = null,
+    @ColumnInfo(name = "headquarters")
     var headquarters: Headquarters? = null,
+    @ColumnInfo(name = "summary")
     var summary: String? = null,
     ) : Parcelable {
     constructor(parcel: Parcel) : this(
@@ -72,11 +91,16 @@ data class CompanyInfo(
     }
 }
 
-
+@Entity(tableName = "headquarters")
 data class Headquarters(
+    @PrimaryKey(autoGenerate = false)
+    @ColumnInfo(name = "id")
     var id: Int = 0,
+    @ColumnInfo(name = "address")
     var address: String? = null,
+    @ColumnInfo(name = "city")
     var city: String? = null,
+    @ColumnInfo(name = "state")
     var state: String? = null,
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
