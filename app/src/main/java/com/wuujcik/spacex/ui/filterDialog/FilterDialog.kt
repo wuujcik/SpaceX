@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewModelScope
 import com.wuujcik.spacex.databinding.DialogFilterBinding
+import com.wuujcik.spacex.providers.LaunchProvider
 import com.wuujcik.spacex.ui.launches.LaunchesFragment
 import com.wuujcik.spacex.ui.launches.LaunchesViewModel
 import com.wuujcik.spacex.utils.resizeDialogWindowToMatchScreen
@@ -19,14 +21,14 @@ class FilterDialog : DialogFragment() {
     private lateinit var binding: DialogFilterBinding
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         return DialogFilterBinding.inflate(inflater, container, false)
-                .also {
-                    binding = it
-                }.root
+            .also {
+                binding = it
+            }.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,8 +36,12 @@ class FilterDialog : DialogFragment() {
 
         with(binding) {
 
-            datePickerFrom.updateDate(2010, 11, 1) // TODO
-            datePickerTo.updateDate(2015, 11, 1) // TODO
+            launchesViewModel.getFirstLaunchDate { year, month, day ->
+                datePickerFrom.updateDate(year, month, day)
+            }
+            launchesViewModel.getLastLaunchDate { year, month, day ->
+                datePickerTo.updateDate(year, month, day)
+            }
 
             confirmButton.setOnClickListener { applyFilters() }
             cancelButton.setOnClickListener { dialog?.dismiss() }
