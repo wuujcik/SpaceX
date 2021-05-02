@@ -59,7 +59,7 @@ class LaunchProvider(val context: Context) {
                 Callback<FilteredLaunches?> {
 
                 override fun onFailure(call: Call<FilteredLaunches?>, t: Throwable) {
-                    Log.e(LaunchesDataSource.TAG, "getLaunches $call failed with $t")
+                    Log.e(TAG, "getLaunches $call failed with $t")
                 }
 
                 override fun onResponse(

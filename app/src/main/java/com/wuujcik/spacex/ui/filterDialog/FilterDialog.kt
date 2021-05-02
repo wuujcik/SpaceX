@@ -51,6 +51,8 @@ class FilterDialog : DialogFragment() {
     private fun applyFilters() {
         val startDate = launchesViewModel.convertPickerToDate(binding.datePickerFrom)
         val endDate = launchesViewModel.convertPickerToDate(binding.datePickerTo)
+        launchesViewModel.saveStartDateToSharedPrefs(startDate)
+        launchesViewModel.saveEndDateToSharedPrefs(endDate)
         (targetFragment as LaunchesFragment).onFiltersApplied(startDate, endDate)
         dialog?.dismiss()
     }

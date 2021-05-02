@@ -30,7 +30,7 @@ class CompanyInfoProvider {
                 _response.value = companyInfo
             } catch (e: Exception) {
                 _response.value = null
-                Log.e(LaunchProvider.TAG, "getCompanyInfo failed with exception: $e")
+                Log.e(TAG, "getCompanyInfo failed with exception: $e")
             }
         }
     }
