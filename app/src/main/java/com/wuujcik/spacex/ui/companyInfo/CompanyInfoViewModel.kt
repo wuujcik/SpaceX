@@ -16,6 +16,6 @@ class CompanyInfoViewModel(app: Application) : AndroidViewModel(app) {
     val companyInfo: LiveData<CompanyInfo?> = provider.companyInfo
 
     fun requestCompanyInfo() {
-        provider.getCompanyInfo(viewModelScope)
+        provider.requestCompanyInfo(viewModelScope)
     }
 }

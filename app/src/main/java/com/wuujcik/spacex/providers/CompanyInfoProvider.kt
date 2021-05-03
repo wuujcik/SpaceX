@@ -19,7 +19,7 @@ class CompanyInfoProvider (context: Context) {
 
     val companyInfo: LiveData<CompanyInfo?> = companyInfoDao.getCompanyInfo()
 
-    fun getCompanyInfo(
+    fun requestCompanyInfo(
         scope: CoroutineScope
     ) {
         scope.launch {
@@ -28,12 +28,21 @@ class CompanyInfoProvider (context: Context) {
                     retrofitService.getCompanyInfo()
                         .awaitResponse()
                         .body()
-                companyInfoDao.insert(companyInfo)
+                insertCompanyInfo(companyInfo)
             } catch (e: Exception) {
                 Log.e(TAG, "getCompanyInfo failed with exception: $e")
             }
         }
     }
+
+    suspend fun insertCompanyInfo(companyInfo: CompanyInfo?) {
+        try {
+            companyInfoDao.insert(companyInfo)
+        } catch (e: Exception) {
+            Log.e(TAG, "insertCompanyInfo failed with exception: $e")
+        }
+    }
+
 
     companion object {
         const val TAG = "CompanyInfoProvider"
