@@ -36,7 +36,7 @@ class CompanyInfoDaoTests {
     fun closeDb() = database.close()
 
     @Test
-    fun insertItemAndGetById() = runBlocking {
+    fun insertItemAndGetCompanyInfo() = runBlocking {
         // GIVEN
         val headquarters = Headquarters(142, "address", "city", "state")
         val item = CompanyInfo(
