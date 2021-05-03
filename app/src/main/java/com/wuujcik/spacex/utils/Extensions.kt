@@ -26,8 +26,3 @@ fun Date.toIsoDate(): String {
     val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     return formatter.format(this)
 }
-
-
-fun Date.toUnixTime(): Long {
-    return (this.time / 1000).toLong()
-}

@@ -1,7 +1,6 @@
 package com.wuujcik.spacex.ui.launchDetails
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +18,6 @@ import java.util.*
 class LaunchDetailsFragment : Fragment() {
 
     private val launchDetailsViewModel by viewModels<LaunchDetailsViewModel>()
-
     private lateinit var binding: FragmentLaunchDetailsBinding
     private var launch: Launch? = null
     private val args: LaunchDetailsFragmentArgs by navArgs()
@@ -41,7 +39,6 @@ class LaunchDetailsFragment : Fragment() {
         launchDetailsViewModel.getRocket(launch?.rocketId)
 
         with(binding) {
-
             flightName.text = launch?.name
             val dateUnix = launch?.date_unix
             if (dateUnix != null) {
@@ -74,9 +71,5 @@ class LaunchDetailsFragment : Fragment() {
                 rocketImg.load(rocket?.flickr_images?.get(0))
             })
         }
-    }
-
-    companion object {
-        const val TAG = "CompanyInfoFragment"
     }
 }

@@ -23,5 +23,4 @@ interface SpaceXApiService {
 
     @GET("rockets/{id}")
     fun getOneRocket(@Path("id") taskId: String): Call<Rocket?>
-
 }

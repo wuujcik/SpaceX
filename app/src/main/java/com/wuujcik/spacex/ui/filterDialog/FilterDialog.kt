@@ -33,14 +33,12 @@ class FilterDialog : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {
-
             launchesViewModel.getFirstLaunchDate { year, month, day ->
                 datePickerFrom.updateDate(year, month, day)
             }
             launchesViewModel.getLastLaunchDate { year, month, day ->
                 datePickerTo.updateDate(year, month, day)
             }
-
             confirmButton.setOnClickListener { applyFilters() }
             cancelButton.setOnClickListener { dialog?.dismiss() }
         }
@@ -70,4 +68,3 @@ interface ApplyFilterDialogDelegate {
     // Called when dialog is about to close.
     fun onFiltersApplied(startDate: Date, endDate: Date)
 }
-

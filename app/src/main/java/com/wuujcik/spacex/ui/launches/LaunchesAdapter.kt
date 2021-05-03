@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.wuujcik.spacex.R
@@ -70,4 +69,3 @@ class CharactersDiff : DiffUtil.ItemCallback<Launch>() {
         return oldItem == newItem
     }
 }
-

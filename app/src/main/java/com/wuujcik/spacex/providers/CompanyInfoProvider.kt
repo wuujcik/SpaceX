@@ -43,7 +43,6 @@ class CompanyInfoProvider (context: Context) {
         }
     }
 
-
     companion object {
         const val TAG = "CompanyInfoProvider"
     }

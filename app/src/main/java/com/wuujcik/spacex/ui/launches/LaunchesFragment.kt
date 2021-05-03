@@ -18,7 +18,6 @@ import java.util.*
 class LaunchesFragment : Fragment(), ApplyFilterDialogDelegate {
 
     private val launchesViewModel by viewModels<LaunchesViewModel>()
-
     private lateinit var binding: FragmentLaunchesBinding
 
     override fun onCreateView(
@@ -50,7 +49,6 @@ class LaunchesFragment : Fragment(), ApplyFilterDialogDelegate {
                     )
                 }
             }
-
             observeLaunches()
         }
        binding.filter.setOnClickListener {
@@ -74,9 +72,5 @@ class LaunchesFragment : Fragment(), ApplyFilterDialogDelegate {
 
     private fun removeLaunchesObservers() {
         launchesViewModel.launches.removeObservers(viewLifecycleOwner)
-    }
-
-    companion object {
-        const val TAG = "LaunchesFragment"
     }
 }
